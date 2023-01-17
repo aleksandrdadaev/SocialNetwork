@@ -1,4 +1,4 @@
-.Navbar {
+.navbar {
 	display: flex;
 	flex-direction: column;
 	border-radius: 5px;
@@ -6,6 +6,6 @@
 	padding: 10px;
 }
 
-.Navbar__Item {
+.navbar__item {
 	font-size: 28px;
 }

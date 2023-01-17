@@ -1,22 +1,19 @@
 import React from 'react';
-import './App.css';
-import Header from './components/Header';
-import Navbar from './components/Navbar';
+import './app.css';
+import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
+import Profile from './components/Profile/Profile';
 
-function App() {
+const App = () => {
 	return (
-		<div className='App'>
+		<div className='app'>
 			<Header />
-			<div className='Container Main'>
+			<div className='container main'>
 				<Navbar />
-				<section>
-					<span>Cover</span>
-					<span>Photo</span>
-					<span>Information</span>
-				</section>
+				<Profile />
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;
