@@ -1,8 +1,15 @@
-.App {
+.app {
 	width: 100%;
 }
 
-.Container {
+.container {
 	width: 1280px;
+	height: 100%;
 	margin: 0 auto;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 2fr 10fr;
+	gap: 20px;
 }

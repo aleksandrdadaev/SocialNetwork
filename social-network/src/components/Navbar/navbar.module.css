@@ -1,0 +1,12 @@
+.navbar {
+	display: flex;
+	flex-direction: column;
+	border-radius: 5px;
+	background-color: rgba(0, 0, 0, 0.7);
+	padding: 10px;
+	height: fit-content;
+}
+
+.navbar__item {
+	font-size: 28px;
+}
