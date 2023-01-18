@@ -7,6 +7,17 @@
 	height: fit-content;
 }
 
-.navbar__item {
+.item {
 	font-size: 28px;
+	color: inherit;
+	border-radius: 5px;
+	padding: 0 5px;
+}
+
+.item_active {
+	color: #ac2925;
+}
+
+.item:not(.item_active):hover {
+	background-color: #ac2925;
 }
