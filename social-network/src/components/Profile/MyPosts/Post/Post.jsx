@@ -4,19 +4,19 @@ import s from './Post.module.css';
 const Post = props => {
 	return (
 		<div className={s.post}>
-			<div className={s.post__profile}>
-				<a className={s.post__avatar}></a>
-				<span className={s.post__nicname}>Name</span>
+			<div className={s.profile}>
+				<a className={s.avatar}></a>
+				<span className={s.nic}>Name</span>
 			</div>
-			<div className={s.post__content}>
-				<div className={s.post__header}>
-					<span className={s.post__datetime}>28 ноября 2022, 11:54</span>
-					<div className={s.post__buttons}>
-						<button className={s.post__button}>Like</button>
-						<button className={s.post__button}>Report</button>
+			<div className={s.content}>
+				<div className={s.header}>
+					<span className={s.date}>28 ноября 2022, 11:54</span>
+					<div className={s.buttons}>
+						<button className={s.button}>Like</button>
+						<button className={s.button}>Report</button>
 					</div>
 				</div>
-				<p className={s.post__text}>{props.message}</p>
+				<p className={s.text}>{props.message}</p>
 			</div>
 		</div>
 	);

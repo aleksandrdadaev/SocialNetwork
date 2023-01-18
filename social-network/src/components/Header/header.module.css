@@ -5,10 +5,10 @@
 	background-color: rgba(0, 0, 0, 0.7);
 }
 
-.header__inner {
+.inner {
 	padding: 0 10px;
 }
 
-.header__logo {
+.logo {
 	height: 100%;
 }
