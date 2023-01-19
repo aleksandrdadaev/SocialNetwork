@@ -1,0 +1,31 @@
+.search {
+	height: 60px;
+	padding: 10px;
+}
+
+.inputWrapper {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	width: 100%;
+	height: 100%;
+	border-radius: 4px;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.input {
+	width: 100%;
+	font-size: 20px;
+}
+
+.button {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+	/* background-color: #d9534f; */
+	background-image: url(./cross.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	opacity: 0.5;
+}

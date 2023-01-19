@@ -12,4 +12,5 @@
 	display: grid;
 	grid-template-columns: 2fr 10fr;
 	gap: 20px;
+	height: calc(100vh - 70px);
 }

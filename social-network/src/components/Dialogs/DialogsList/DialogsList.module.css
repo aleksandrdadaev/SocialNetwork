@@ -1,0 +1,10 @@
+.dialogsList {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.dialogsList::-webkit-scrollbar {
+	width: 0;
+}

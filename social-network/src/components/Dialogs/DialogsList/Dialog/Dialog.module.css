@@ -1,0 +1,51 @@
+.dialog {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	padding: 0 10px;
+	gap: 10px;
+	flex-shrink: 0;
+}
+
+.active {
+	background-color: #ac2925;
+}
+
+.dialog:not(.active):hover {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.img {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 7px;
+	width: 100%;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+}
+
+.name {
+	font-size: 17px;
+	line-height: 17px;
+	color: #fff;
+}
+
+.time {
+	font-size: 16px;
+	line-height: 16px;
+	color: #fff;
+	opacity: 0.5;
+}
+
+.active .time {
+	opacity: 1;
+}
