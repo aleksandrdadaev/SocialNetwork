@@ -1,0 +1,14 @@
+.item {
+	font-size: 28px;
+	color: inherit;
+	border-radius: 5px;
+	padding: 0 5px;
+}
+
+.active {
+	color: #ac2925;
+}
+
+.item:not(.active):hover {
+	background-color: #ac2925;
+}
