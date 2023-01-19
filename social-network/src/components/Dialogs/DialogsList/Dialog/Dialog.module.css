@@ -4,6 +4,7 @@
 	height: 60px;
 	padding: 0 10px;
 	gap: 10px;
+	flex-shrink: 0;
 }
 
 .active {

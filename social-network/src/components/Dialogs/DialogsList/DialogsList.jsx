@@ -8,6 +8,24 @@ const DialogsList = props => {
 			<Dialog name='Sanchezz' id='1' />
 			<Dialog name='DANIL' id='2' />
 			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
+			<Dialog name='Sanchezz' id='1' />
+			<Dialog name='DANIL' id='2' />
+			<Dialog name='Pahan' id='3' />
 		</div>
 	);
 };
