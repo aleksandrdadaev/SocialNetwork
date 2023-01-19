@@ -1,0 +1,15 @@
+.dialogs {
+	display: grid;
+	grid-template-columns: 2fr 6fr;
+	gap: 20px;
+}
+
+.leftPanel {
+	background-color: rgba(0, 0, 0, 0.7);
+	border-radius: 5px;
+}
+
+.rightPanel {
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+}

@@ -1,0 +1,4 @@
+.dialogsList {
+	display: flex;
+	flex-direction: column;
+}
