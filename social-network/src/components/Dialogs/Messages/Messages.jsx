@@ -8,7 +8,7 @@ const Messages = props => {
 	return (
 		<div className={s.messages}>
 			<Header />
-			<Body />
+			<Body messages={props.messages} />
 			<Footer />
 		</div>
 	);
