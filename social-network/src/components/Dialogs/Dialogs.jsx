@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './Dialogs.module.css';
 import DialogsList from './DialogsList/DialogsList';
+import Messages from './Messages/Messages';
 import Search from './Search/Search';
 
 const Dialogs = props => {
@@ -8,9 +9,11 @@ const Dialogs = props => {
 		<section className={s.dialogs}>
 			<div className={s.leftPanel}>
 				<Search />
-				<DialogsList />
+				<DialogsList dialogs={props.dialogs} />
 			</div>
-			<div className={s.rightPanel}></div>
+			<div className={s.rightPanel}>
+				<Messages messages={props.messages} />
+			</div>
 		</section>
 	);
 };

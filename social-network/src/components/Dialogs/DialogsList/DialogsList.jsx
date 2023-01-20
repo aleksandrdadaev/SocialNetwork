@@ -3,13 +3,9 @@ import Dialog from './Dialog/Dialog';
 import s from './DialogsList.module.css';
 
 const DialogsList = props => {
-	return (
-		<div className={s.dialogsList}>
-			<Dialog name='Sanchezz' id='1' />
-			<Dialog name='DANIL' id='2' />
-			<Dialog name='Pahan' id='3' />
-		</div>
-	);
+	let dialogs = props.dialogs.map(d => <Dialog name={d.name} id={d.id} />);
+
+	return <div className={s.dialogsList}>{dialogs}</div>;
 };
 
 export default DialogsList;

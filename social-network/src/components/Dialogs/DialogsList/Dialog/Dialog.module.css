@@ -39,13 +39,13 @@
 	color: #fff;
 }
 
-.time {
+.text {
 	font-size: 16px;
 	line-height: 16px;
 	color: #fff;
 	opacity: 0.5;
 }
 
-.active .time {
+.active .text {
 	opacity: 1;
 }

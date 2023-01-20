@@ -16,7 +16,7 @@ const Post = props => {
 						<button className={s.button}>Report</button>
 					</div>
 				</div>
-				<p className={s.text}>{props.message}</p>
+				<p className={s.text}>{props.text}</p>
 			</div>
 		</div>
 	);

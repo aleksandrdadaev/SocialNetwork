@@ -8,15 +8,15 @@ const Dialog = props => {
 	return (
 		<NavLink
 			to={path}
-			className={item => (item.isActive ? s.dialog + ' ' + s.active : s.dialog)}
+			className={item => (item.isActive ? `${s.dialog} ${s.active}` : s.dialog)}
 		>
 			<img src={Photo} className={s.img} />
 			<div className={s.info}>
 				<div className={s.header}>
 					<span className={s.name}>{props.name}</span>
-					<span className={s.time}>14:51</span>
+					<span className={s.text}>14:51</span>
 				</div>
-				<span className={s.time}>Привет</span>
+				<span className={s.text}>Привет</span>
 			</div>
 		</NavLink>
 	);
