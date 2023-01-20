@@ -1,0 +1,29 @@
+.message {
+	width: fit-content;
+	max-width: 80%;
+	padding: 10px;
+	border-radius: 20px;
+	display: flex;
+	gap: 10px;
+}
+
+.text {
+	font-size: 18px;
+}
+
+.time {
+	font-size: 16px;
+	line-height: 16px;
+	opacity: 0.6;
+	align-self: flex-end;
+}
+
+._my {
+	background-color: #ac2925;
+	align-self: flex-end;
+}
+
+._alien {
+	background-color: rgba(0, 0, 0, 0.5);
+	align-self: flex-start;
+}

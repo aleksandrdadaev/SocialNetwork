@@ -3,4 +3,5 @@
 	flex-direction: column-reverse;
 	height: 100%;
 	padding: 0 10px 10px;
+	gap: 5px;
 }

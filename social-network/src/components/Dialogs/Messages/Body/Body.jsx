@@ -4,7 +4,10 @@ import Message from './Message/Message';
 
 let messagesData = [
 	{ id: 1, text: 'Hi' },
-	{ id: 2, text: 'How are you?' },
+	{
+		id: 2,
+		text: 'How are you?',
+	},
 	{ id: 3, text: 'Hi' },
 ];
 
