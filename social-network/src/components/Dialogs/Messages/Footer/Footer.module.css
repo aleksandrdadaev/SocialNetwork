@@ -1,8 +1,9 @@
 .buttons {
-	background-image: url(../img/send.png);
-	background-repeat: no-repeat;
 	background-size: 30px;
-	background-position: 50%;
+}
+
+.send {
+	background-image: url(../img/send.png);
 }
 
 .textareaWrapper {

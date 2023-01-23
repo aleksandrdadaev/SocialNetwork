@@ -1,3 +1,5 @@
+import { render } from '../render';
+
 let state = {
 	profilePage: {
 		posts: [
@@ -21,6 +23,15 @@ let state = {
 			{ id: 4, text: 'Yo' },
 		],
 	},
+};
+
+export let addPost = postText => {
+	let newPost = {
+		id: 5,
+		text: postText,
+	};
+	state.profilePage.posts.push(newPost);
+	render(state);
 };
 
 export default state;

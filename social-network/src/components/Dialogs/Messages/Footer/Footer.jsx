@@ -22,7 +22,7 @@ const Footer = props => {
 			</div>
 			<button className={`${s2.buttons} ${s.buttons}`}></button>
 			<button
-				className={`${s2.buttons} ${s.buttons}`}
+				className={`${s2.buttons} ${s.buttons} ${s.send}`}
 				onClick={addMessage}
 			></button>
 		</div>

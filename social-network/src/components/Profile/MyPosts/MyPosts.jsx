@@ -9,7 +9,8 @@ const MyPosts = props => {
 
 	let addPost = () => {
 		let text = postInput.current.value;
-		alert(text);
+		props.addPost(text);
+		postInput.current.value = '';
 	};
 
 	return (
