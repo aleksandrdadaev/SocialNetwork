@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import s from './Navbar.module.css';
 import NavItem from './NavItem/NavItem';
 
-const Navbar = () => {
+const Navbar = props => {
 	return (
 		<nav className={s.navbar}>
 			<NavItem path='profile' text='Profile' />

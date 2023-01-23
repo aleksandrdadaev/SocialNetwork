@@ -29,3 +29,7 @@
 	background-size: contain;
 	opacity: 0.5;
 }
+
+.button:hover {
+	opacity: 1;
+}
