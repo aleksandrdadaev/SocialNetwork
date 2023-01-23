@@ -13,11 +13,18 @@ const MyPosts = props => {
 	};
 
 	return (
-		<div>
-			<h2> My posts</h2>
-			<div>
-				<textarea ref={postInput}></textarea>
-				<button onClick={addPost}>Add Post</button>
+		<div className={s.myPosts}>
+			<h2 className={s.title}> My posts</h2>
+			<div className={s.newPost}>
+				<textarea
+					ref={postInput}
+					className={s.textarea}
+					placeholder='Что у вас нового?'
+					rows='5'
+				></textarea>
+				<button onClick={addPost} className={s.button}>
+					Add Post
+				</button>
 			</div>
 			<div className={s.posts}>{posts}</div>
 		</div>
