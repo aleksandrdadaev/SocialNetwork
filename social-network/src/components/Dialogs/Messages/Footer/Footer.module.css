@@ -1,0 +1,25 @@
+.buttons {
+	background-size: 30px;
+}
+
+.send {
+	background-image: url(../img/send.png);
+}
+
+.textareaWrapper {
+	width: 100%;
+	padding: 10px 0;
+}
+
+.textarea {
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+	line-height: 24px;
+	resize: none;
+	padding: 10px 0;
+}
+
+.textarea::-webkit-scrollbar {
+	width: 0;
+}
