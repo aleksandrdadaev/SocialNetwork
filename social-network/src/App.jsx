@@ -22,6 +22,7 @@ const App = props => {
 							<Profile
 								state={props.state.profilePage}
 								addPost={props.addPost}
+								updateNewPostInputValue={props.updateNewPostInputValue}
 							/>
 						}
 					/>

@@ -6,6 +6,7 @@ let state = {
 			{ id: 1, text: 'Hi, how are you?' },
 			{ id: 2, text: "It's my second post" },
 		],
+		newPostInputValue: '',
 	},
 	dialogsPage: {
 		dialogs: [
@@ -25,12 +26,18 @@ let state = {
 	},
 };
 
-export let addPost = postText => {
+export let addPost = () => {
 	let newPost = {
 		id: 5,
-		text: postText,
+		text: state.profilePage.newPostInputValue,
 	};
 	state.profilePage.posts.push(newPost);
+	state.profilePage.newPostInputValue = '';
+	render(state);
+};
+
+export let updateNewPostInputValue = newText => {
+	state.profilePage.newPostInputValue = newText;
 	render(state);
 };
 
