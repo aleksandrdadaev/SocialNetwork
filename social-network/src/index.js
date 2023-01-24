@@ -12,11 +12,7 @@ let rerender = state => {
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App
-					state={state}
-					addPost={store.addPost.bind(store)}
-					updateNewPostInputValue={store.updateNewPostInputValue.bind(store)}
-				/>
+				<App state={state} dispatch={store.dispatch.bind(store)} />
 			</BrowserRouter>
 		</React.StrictMode>
 	);
