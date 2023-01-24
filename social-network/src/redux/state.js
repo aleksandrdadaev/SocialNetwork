@@ -1,4 +1,6 @@
-import { render } from '../render';
+let render = () => {
+	console.log('State changed');
+};
 
 let state = {
 	profilePage: {
@@ -26,19 +28,23 @@ let state = {
 	},
 };
 
-export let addPost = () => {
+export const addPost = () => {
 	let newPost = {
 		id: 5,
 		text: state.profilePage.newPostInputValue,
 	};
 	state.profilePage.posts.push(newPost);
 	state.profilePage.newPostInputValue = '';
-	render(state);
+	render();
 };
 
-export let updateNewPostInputValue = newText => {
+export const updateNewPostInputValue = newText => {
 	state.profilePage.newPostInputValue = newText;
-	render(state);
+	render();
+};
+
+export const subscribe = observer => {
+	render = observer; // наблюдатель
 };
 
 export default state;
