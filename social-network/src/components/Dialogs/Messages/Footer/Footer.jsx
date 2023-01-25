@@ -1,13 +1,21 @@
 import React from 'react';
 import s from './Footer.module.css';
 import s2 from '../Messages.module.css';
+import {
+	updateNewMessageInputValueAC,
+	sendMessageAC,
+} from '../../../../redux/dialogsReducer';
 
 const Footer = props => {
-	let messageInput = React.createRef();
+	let messageInputChange = e => {
+		let text = e.target.value;
+		let action = updateNewMessageInputValueAC(text);
+		props.dispatch(action);
+	};
 
-	let addMessage = () => {
-		let text = messageInput.current.value;
-		alert(text);
+	let sendMessage = () => {
+		let action = sendMessageAC();
+		props.dispatch(action);
 	};
 
 	return (
@@ -17,13 +25,14 @@ const Footer = props => {
 				<textarea
 					className={s.textarea}
 					placeholder='Написать сообщение...'
-					ref={messageInput}
+					value={props.messageInputValue}
+					onChange={messageInputChange}
 				></textarea>
 			</div>
 			<button className={`${s2.buttons} ${s.buttons}`}></button>
 			<button
 				className={`${s2.buttons} ${s.buttons} ${s.send}`}
-				onClick={addMessage}
+				onClick={sendMessage}
 			></button>
 		</div>
 	);

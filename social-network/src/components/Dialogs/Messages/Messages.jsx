@@ -9,7 +9,10 @@ const Messages = props => {
 		<div className={s.messages}>
 			<Header />
 			<Body messages={props.messages} />
-			<Footer />
+			<Footer
+				dispatch={props.dispatch}
+				messageInputValue={props.messageInputValue}
+			/>
 		</div>
 	);
 };

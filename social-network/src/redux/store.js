@@ -1,3 +1,6 @@
+import dialogsReducer from './dialogsReducer';
+import profileReducer from './profileReducer';
+
 let store = {
 	_state: {
 		profilePage: {
@@ -22,6 +25,7 @@ let store = {
 				{ id: 3, text: 'Hi' },
 				{ id: 4, text: 'Yo' },
 			],
+			newMessageInputValue: '',
 		},
 	},
 	_callSubscriber() {},
@@ -34,19 +38,12 @@ let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
-			let newPost = {
-				id: 5,
-				text: this._state.profilePage.newPostInputValue,
-			};
-			this._state.profilePage.posts.push(newPost);
-			this._state.profilePage.newPostInputValue = '';
-			this._callSubscriber(this._state);
-		} else if (action.type === 'UPDATE-NEW-POST-INPUT-VALUE') {
-			this._state.profilePage.newPostInputValue = action.newValue;
-			this._callSubscriber(this._state);
-		}
+		this._state.profilePage = profileReducer(this._state.profilePage, action);
+		this._state.dialogsPage = dialogsReducer(this._state.dialogsPage, action);
+
+		this._callSubscriber(this._state);
 	},
 };
 
+window.store = store;
 export default store;
