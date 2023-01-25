@@ -1,5 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_INPUT_VALUE = 'UPDATE-NEW-POST-INPUT-VALUE';
+const UPDATE_NEW_MESSAGE_INPUT_VALUE = 'UPDATE-NEW-MESSAGE-INPUT-VALUE';
+const ADD_MESSAGE = 'ADD-MESSAGE';
 
 let store = {
 	_state: {
@@ -25,6 +27,7 @@ let store = {
 				{ id: 3, text: 'Hi' },
 				{ id: 4, text: 'Yo' },
 			],
+			newMessageInputValue: '',
 		},
 	},
 	_callSubscriber() {},
@@ -48,6 +51,17 @@ let store = {
 		} else if (action.type === UPDATE_NEW_POST_INPUT_VALUE) {
 			this._state.profilePage.newPostInputValue = action.newValue;
 			this._callSubscriber(this._state);
+		} else if (action.type === UPDATE_NEW_MESSAGE_INPUT_VALUE) {
+			this._state.dialogsPage.newMessageInputValue = action.newValue;
+			this._callSubscriber(this._state);
+		} else if (action.type === ADD_MESSAGE) {
+			let newMessage = {
+				id: 5,
+				text: this._state.dialogsPage.newMessageInputValue,
+			};
+			this._state.dialogsPage.messages.push(newMessage);
+			this._state.dialogsPage.newMessageInputValue = '';
+			this._callSubscriber(this._state);
 		}
 	},
 };
@@ -59,4 +73,12 @@ export const updateNewPostInputValueActionCreator = text => ({
 	newValue: text,
 });
 
+export const updateNewMessageInputValueActionCreator = text => ({
+	type: UPDATE_NEW_MESSAGE_INPUT_VALUE,
+	newValue: text,
+});
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+
+window.store = store;
 export default store;

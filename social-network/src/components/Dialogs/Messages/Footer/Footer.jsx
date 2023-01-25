@@ -1,13 +1,23 @@
 import React from 'react';
 import s from './Footer.module.css';
 import s2 from '../Messages.module.css';
+import {
+	updateNewMessageInputValueActionCreator,
+	addMessageActionCreator,
+} from '../../../../redux/state';
 
 const Footer = props => {
 	let messageInput = React.createRef();
 
-	let addMessage = () => {
+	let messageInputChange = () => {
 		let text = messageInput.current.value;
-		alert(text);
+		let action = updateNewMessageInputValueActionCreator(text);
+		props.dispatch(action);
+	};
+
+	let addMessage = () => {
+		let action = addMessageActionCreator();
+		props.dispatch(action);
 	};
 
 	return (
@@ -18,6 +28,8 @@ const Footer = props => {
 					className={s.textarea}
 					placeholder='Написать сообщение...'
 					ref={messageInput}
+					value={props.messageInputValue}
+					onChange={messageInputChange}
 				></textarea>
 			</div>
 			<button className={`${s2.buttons} ${s.buttons}`}></button>

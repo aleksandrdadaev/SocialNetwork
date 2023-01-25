@@ -12,7 +12,11 @@ const Dialogs = props => {
 				<DialogsList dialogs={props.state.dialogs} />
 			</div>
 			<div className={s.rightPanel}>
-				<Messages messages={props.state.messages} />
+				<Messages
+					messages={props.state.messages}
+					dispatch={props.dispatch}
+					messageInputValue={props.state.newMessageInputValue}
+				/>
 			</div>
 		</section>
 	);
