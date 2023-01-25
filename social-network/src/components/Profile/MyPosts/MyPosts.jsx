@@ -2,21 +2,21 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 import {
-	updateNewPostInputValueActionCreator,
-	addPostActionCreator,
-} from '../../../redux/state';
+	updateNewPostInputValueAC,
+	addPostAC,
+} from '../../../redux/profileReducer';
 
 const MyPosts = props => {
 	let posts = props.state.posts.map(p => <Post text={p.text} />);
 
 	let postInputChange = e => {
 		let text = e.target.value;
-		let action = updateNewPostInputValueActionCreator(text);
+		let action = updateNewPostInputValueAC(text);
 		props.dispatch(action);
 	};
 
 	let addPost = () => {
-		let action = addPostActionCreator();
+		let action = addPostAC();
 		props.dispatch(action);
 	};
 

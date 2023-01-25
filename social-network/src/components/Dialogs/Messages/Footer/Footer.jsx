@@ -2,19 +2,19 @@ import React from 'react';
 import s from './Footer.module.css';
 import s2 from '../Messages.module.css';
 import {
-	updateNewMessageInputValueActionCreator,
-	addMessageActionCreator,
-} from '../../../../redux/state';
+	updateNewMessageInputValueAC,
+	sendMessageAC,
+} from '../../../../redux/dialogsReducer';
 
 const Footer = props => {
 	let messageInputChange = e => {
 		let text = e.target.value;
-		let action = updateNewMessageInputValueActionCreator(text);
+		let action = updateNewMessageInputValueAC(text);
 		props.dispatch(action);
 	};
 
-	let addMessage = () => {
-		let action = addMessageActionCreator();
+	let sendMessage = () => {
+		let action = sendMessageAC();
 		props.dispatch(action);
 	};
 
@@ -32,7 +32,7 @@ const Footer = props => {
 			<button className={`${s2.buttons} ${s.buttons}`}></button>
 			<button
 				className={`${s2.buttons} ${s.buttons} ${s.send}`}
-				onClick={addMessage}
+				onClick={sendMessage}
 			></button>
 		</div>
 	);
