@@ -7,10 +7,8 @@ import {
 } from '../../../../redux/state';
 
 const Footer = props => {
-	let messageInput = React.createRef();
-
-	let messageInputChange = () => {
-		let text = messageInput.current.value;
+	let messageInputChange = e => {
+		let text = e.target.value;
 		let action = updateNewMessageInputValueActionCreator(text);
 		props.dispatch(action);
 	};
@@ -27,7 +25,6 @@ const Footer = props => {
 				<textarea
 					className={s.textarea}
 					placeholder='Написать сообщение...'
-					ref={messageInput}
 					value={props.messageInputValue}
 					onChange={messageInputChange}
 				></textarea>
