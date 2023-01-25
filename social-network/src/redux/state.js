@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_INPUT_VALUE = 'UPDATE-NEW-POST-INPUT-VALUE';
+
 let store = {
 	_state: {
 		profilePage: {
@@ -34,7 +37,7 @@ let store = {
 	},
 
 	dispatch(action) {
-		if (action.type === 'ADD-POST') {
+		if (action.type === ADD_POST) {
 			let newPost = {
 				id: 5,
 				text: this._state.profilePage.newPostInputValue,
@@ -42,11 +45,18 @@ let store = {
 			this._state.profilePage.posts.push(newPost);
 			this._state.profilePage.newPostInputValue = '';
 			this._callSubscriber(this._state);
-		} else if (action.type === 'UPDATE-NEW-POST-INPUT-VALUE') {
+		} else if (action.type === UPDATE_NEW_POST_INPUT_VALUE) {
 			this._state.profilePage.newPostInputValue = action.newValue;
 			this._callSubscriber(this._state);
 		}
 	},
 };
+
+export const addPostActionCreator = () => ({ type: ADD_POST });
+
+export const updateNewPostInputValueActionCreator = text => ({
+	type: UPDATE_NEW_POST_INPUT_VALUE,
+	newValue: text,
+});
 
 export default store;
