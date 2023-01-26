@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Dialogs.module.css';
-import DialogsList from './DialogsList/DialogsList';
+import DialogsListContainer from './DialogsList/DialogsListContainer';
 import Messages from './Messages/Messages';
 import Search from './Search/Search';
 
@@ -9,14 +9,10 @@ const Dialogs = props => {
 		<section className={s.dialogs}>
 			<div className={s.leftPanel}>
 				<Search />
-				<DialogsList dialogs={props.state.dialogs} />
+				<DialogsListContainer />
 			</div>
 			<div className={s.rightPanel}>
-				<Messages
-					messages={props.state.messages}
-					dispatch={props.dispatch}
-					messageInputValue={props.state.newMessageInputValue}
-				/>
+				<Messages />
 			</div>
 		</section>
 	);
