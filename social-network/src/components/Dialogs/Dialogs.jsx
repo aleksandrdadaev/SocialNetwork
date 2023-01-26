@@ -9,10 +9,10 @@ const Dialogs = props => {
 		<section className={s.dialogs}>
 			<div className={s.leftPanel}>
 				<Search />
-				<DialogsListContainer store={props.store} />
+				<DialogsListContainer />
 			</div>
 			<div className={s.rightPanel}>
-				<Messages store={props.store} />
+				<Messages />
 			</div>
 		</section>
 	);

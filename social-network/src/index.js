@@ -5,6 +5,7 @@ import store from './redux/reduxStore';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import StoreContext from './StoreContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,7 +13,9 @@ let rerender = state => {
 	root.render(
 		<React.StrictMode>
 			<BrowserRouter>
-				<App store={store} />
+				<StoreContext.Provider value={store}>
+					<App />
+				</StoreContext.Provider>
 			</BrowserRouter>
 		</React.StrictMode>
 	);

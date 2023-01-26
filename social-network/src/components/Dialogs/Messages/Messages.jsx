@@ -8,8 +8,8 @@ const Messages = props => {
 	return (
 		<div className={s.messages}>
 			<Header />
-			<BodyContainer store={props.store} />
-			<FooterContainer store={props.store} />
+			<BodyContainer />
+			<FooterContainer />
 		</div>
 	);
 };
