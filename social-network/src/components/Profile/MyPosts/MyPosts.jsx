@@ -1,25 +1,16 @@
 import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
-import {
-	updateNewPostInputValueAC,
-	addPostAC,
-} from '../../../redux/profileReducer';
 
 const MyPosts = props => {
-	let posts = props.state.posts.map(p => <Post text={p.text} />);
-
-	let postInputChange = e => {
+	let posts = props.posts.map(p => <Post text={p.text} />);
+	let onPostInputChange = e => {
 		let text = e.target.value;
-		let action = updateNewPostInputValueAC(text);
-		props.dispatch(action);
+		props.updateNewPostInputValue(text);
 	};
-
-	let addPost = () => {
-		let action = addPostAC();
-		props.dispatch(action);
+	let onAddPost = () => {
+		props.addPost();
 	};
-
 	return (
 		<div className={s.myPosts}>
 			<h2 className={s.title}> My posts</h2>
@@ -28,10 +19,10 @@ const MyPosts = props => {
 					className={s.textarea}
 					placeholder='Что у вас нового?'
 					rows='5'
-					value={props.state.newPostInputValue}
-					onChange={postInputChange}
+					value={props.newPostInputValue}
+					onChange={onPostInputChange}
 				/>
-				<button onClick={addPost} className={s.button}>
+				<button onClick={onAddPost} className={s.button}>
 					Add Post
 				</button>
 			</div>
