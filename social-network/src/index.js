@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import store from './redux/store';
+import store from './redux/reduxStore';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
@@ -20,6 +20,6 @@ let rerender = state => {
 
 rerender(store.getState());
 
-store.subscribe(rerender);
+store.subscribe(() => rerender(store.getState()));
 
 reportWebVitals();
