@@ -8,21 +8,14 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-let rerender = state => {
-	root.render(
-		<React.StrictMode>
-			<BrowserRouter>
-				<Provider store={store}>
-					<App />
-				</Provider>
-			</BrowserRouter>
-		</React.StrictMode>
-	);
-};
-
-rerender(store.getState());
-
-store.subscribe(() => rerender(store.getState()));
+root.render(
+	<React.StrictMode>
+		<BrowserRouter>
+			<Provider store={store}>
+				<App />
+			</Provider>
+		</BrowserRouter>
+	</React.StrictMode>
+);
 
 reportWebVitals();

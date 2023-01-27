@@ -1,7 +1,6 @@
 .body {
 	display: flex;
-	flex-direction: column;
-	justify-content: end;
+	flex-direction: column-reverse;
 	height: 100%;
 	padding: 10px 15px;
 	gap: 5px;
