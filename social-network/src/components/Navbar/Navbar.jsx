@@ -9,7 +9,7 @@ const Navbar = props => {
 			<NavItem path='profile' text='Profile' />
 			<NavItem path='news' text='News' />
 			<NavItem path='dialogs' text='Messages' />
-			<NavItem path='friends' text='Friends' />
+			<NavItem path='users' text='Users' />
 			<NavItem path='music' text='Music' />
 			<NavItem path='settings' text='Settings' />
 		</nav>
