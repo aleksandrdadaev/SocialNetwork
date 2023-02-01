@@ -1,17 +1,94 @@
 .users {
 	height: inherit;
 	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 .users::-webkit-scrollbar {
 	width: 0;
 }
 
+.user {
+	width: 100%;
+	display: flex;
+	gap: 20px;
+	padding: 15px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+}
+
 .photo {
 	width: 100px;
 	height: 100px;
+	border-radius: 50%;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+}
+
+.name {
+	font-size: 17px;
+}
+
+.status {
+	font-size: 16px;
+	opacity: 0.6;
 }
 
 .button {
+	height: fit-content;
+	flex-shrink: 0;
+	background-color: #d9534f;
+	font-size: 19px;
+	padding: 7px 12px;
+	border-radius: 5px;
+}
+
+.button:hover {
+	background-color: #c9302c;
+}
+
+.navigate {
+	width: fit-content;
+	display: flex;
+	border-radius: 5px;
+}
+
+.navButton {
+	font-size: 19px;
+	padding: 6px 12px;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.7);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.buttonArrow {
+	width: 10px;
+	height: 14px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.buttonNext {
+	background-image: url(./next.png);
+}
+
+.buttonPrev {
+	background-image: url(./prev.png);
+}
+
+.buttonActive {
+	background-color: #e6e6e6;
+	color: #333;
+	cursor: default;
+}
+
+.navButton:not(.buttonActive):hover {
 	background-color: black;
-	padding: 10px;
 }
