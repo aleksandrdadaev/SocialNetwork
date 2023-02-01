@@ -7,6 +7,7 @@
 
 .active {
 	color: #ac2925;
+	cursor: default;
 }
 
 .item:not(.active):hover {
