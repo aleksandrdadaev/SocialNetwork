@@ -31,12 +31,30 @@ class Users extends React.Component {
 			this.props.totalUsersCount / this.props.pageSize
 		);
 		let pages = [];
-		for (let i = 1; i <= pagesCount; i++) {
+		pages.push(1);
+		// if ((this.props.currentPage - 1) / 2 >= 2) {
+		// }
+		for (
+			let i = this.props.currentPage - 2;
+			i <= this.props.currentPage + 2;
+			i++
+		) {
 			pages.push(i);
 		}
+		pages.push(pagesCount);
 		return (
 			<section className={styles.users}>
 				<div className={styles.navigate}>
+					<button
+						className={styles.navButton}
+						onClick={() => {
+							if (this.props.currentPage > 1) {
+								this.onPageChanged(this.props.currentPage - 1);
+							}
+						}}
+					>
+						<div className={`${styles.buttonArrow} ${styles.buttonPrev}`}></div>
+					</button>
 					{pages.map(p => {
 						return (
 							<button
@@ -53,6 +71,16 @@ class Users extends React.Component {
 							</button>
 						);
 					})}
+					<button
+						className={styles.navButton}
+						onClick={() => {
+							if (this.props.currentPage < pagesCount) {
+								this.onPageChanged(this.props.currentPage + 1);
+							}
+						}}
+					>
+						<div className={`${styles.buttonArrow} ${styles.buttonNext}`}></div>
+					</button>
 					{/* <button className={styles.navButton}>
 						<div className={`${styles.buttonArrow} ${styles.buttonPrev}`}></div>
 					</button>
