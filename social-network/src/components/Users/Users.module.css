@@ -68,6 +68,10 @@
 	background-position: center;
 }
 
+.navButtonDis {
+	cursor: default;
+}
+
 .buttonArrow {
 	width: 10px;
 	height: 14px;
@@ -89,6 +93,6 @@
 	cursor: default;
 }
 
-.navButton:not(.buttonActive):hover {
+.navButton:not(.buttonActive):not(.navButtonDis):hover {
 	background-color: black;
 }
