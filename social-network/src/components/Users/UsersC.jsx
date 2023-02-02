@@ -31,22 +31,34 @@ class Users extends React.Component {
 			this.props.totalUsersCount / this.props.pageSize
 		);
 		let pages = [];
-		pages.push(1);
-		// if ((this.props.currentPage - 1) / 2 >= 2) {
-		// }
-		for (
-			let i = this.props.currentPage - 2;
-			i <= this.props.currentPage + 2;
-			i++
-		) {
-			pages.push(i);
+		if (this.props.currentPage <= 3) {
+			for (let i = 2; i <= 5; i++) {
+				pages.push(i);
+			}
+		} else if (this.props.currentPage >= pagesCount - 2) {
+			for (let i = pagesCount - 4; i < pagesCount; i++) {
+				pages.push(i);
+			}
+		} else {
+			for (
+				let i = this.props.currentPage - 2;
+				i <= this.props.currentPage + 2;
+				i++
+			) {
+				pages.push(i);
+			}
 		}
-		pages.push(pagesCount);
+		let lowGap = Math.floor((this.props.currentPage - 1) / 2);
+		let highGap = Math.ceil((this.props.currentPage + 2 + pagesCount) / 2);
 		return (
 			<section className={styles.users}>
 				<div className={styles.navigate}>
 					<button
-						className={styles.navButton}
+						className={
+							this.props.currentPage === 1
+								? `${styles.navButton} ${styles.navButtonDis}`
+								: styles.navButton
+						}
 						onClick={() => {
 							if (this.props.currentPage > 1) {
 								this.onPageChanged(this.props.currentPage - 1);
@@ -55,6 +67,28 @@ class Users extends React.Component {
 					>
 						<div className={`${styles.buttonArrow} ${styles.buttonPrev}`}></div>
 					</button>
+					<button
+						className={
+							this.props.currentPage === 1
+								? `${styles.navButton} ${styles.buttonActive}`
+								: styles.navButton
+						}
+						onClick={() => {
+							this.onPageChanged(1);
+						}}
+					>
+						1
+					</button>
+					{lowGap >= 2 && (
+						<button
+							className={styles.navButton}
+							onClick={() => {
+								this.onPageChanged(lowGap);
+							}}
+						>
+							...
+						</button>
+					)}
 					{pages.map(p => {
 						return (
 							<button
@@ -71,8 +105,34 @@ class Users extends React.Component {
 							</button>
 						);
 					})}
+					{highGap <= pagesCount - 1 && (
+						<button
+							className={styles.navButton}
+							onClick={() => {
+								this.onPageChanged(highGap);
+							}}
+						>
+							...
+						</button>
+					)}
 					<button
-						className={styles.navButton}
+						className={
+							this.props.currentPage === pagesCount
+								? `${styles.navButton} ${styles.buttonActive}`
+								: styles.navButton
+						}
+						onClick={() => {
+							this.onPageChanged(pagesCount);
+						}}
+					>
+						{pagesCount}
+					</button>
+					<button
+						className={
+							this.props.currentPage === pagesCount
+								? `${styles.navButton} ${styles.navButtonDis}`
+								: styles.navButton
+						}
 						onClick={() => {
 							if (this.props.currentPage < pagesCount) {
 								this.onPageChanged(this.props.currentPage + 1);
@@ -81,20 +141,6 @@ class Users extends React.Component {
 					>
 						<div className={`${styles.buttonArrow} ${styles.buttonNext}`}></div>
 					</button>
-					{/* <button className={styles.navButton}>
-						<div className={`${styles.buttonArrow} ${styles.buttonPrev}`}></div>
-					</button>
-					<button className={`${styles.navButton} ${styles.buttonActive}`}>
-						1
-					</button>
-					<button className={styles.navButton}>2</button>
-					<button className={styles.navButton}>3</button>
-					<button className={styles.navButton}>4</button>
-					<button className={styles.navButton}>5</button>
-					<button className={styles.navButton}>...</button>
-					<button className={styles.navButton}>
-						<div className={`${styles.buttonArrow} ${styles.buttonNext}`}></div>
-					</button> */}
 				</div>
 				{this.props.users.map(u => (
 					<div key={u.id} className={styles.user}>
