@@ -1,5 +1,6 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_INPUT_VALUE = 'UPDATE-NEW-POST-INPUT-VALUE';
+const SET_USER_PROFILE = 'SET-USER-PROFILE';
 
 let initialState = {
 	posts: [
@@ -7,6 +8,7 @@ let initialState = {
 		{ id: 2, text: "It's my second post" },
 	],
 	newPostInputValue: '',
+	profile: null,
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -23,16 +25,24 @@ const profileReducer = (state = initialState, action) => {
 				...state,
 				newPostInputValue: action.newValue,
 			};
+		case SET_USER_PROFILE:
+			return {
+				...state,
+				profile: action.profile,
+			};
 		default:
 			return state;
 	}
 };
 
 export const addPostAC = () => ({ type: ADD_POST });
-
 export const updateNewPostInputValueAC = text => ({
 	type: UPDATE_NEW_POST_INPUT_VALUE,
 	newValue: text,
+});
+export const setUserProfile = profile => ({
+	type: SET_USER_PROFILE,
+	profile,
 });
 
 export default profileReducer;
