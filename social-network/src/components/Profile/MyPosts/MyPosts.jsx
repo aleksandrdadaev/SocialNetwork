@@ -3,7 +3,7 @@ import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
 const MyPosts = props => {
-	let posts = props.posts.map(p => <Post text={p.text} />);
+	let posts = props.posts.map(p => <Post text={p.text} key={p.id} />);
 	let onPostInputChange = e => {
 		let text = e.target.value;
 		props.updateNewPostInputValue(text);
