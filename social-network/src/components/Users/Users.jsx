@@ -44,7 +44,9 @@ const Users = props => {
 							: styles.navButton
 					}
 					onClick={() => {
-						props.onPageChanged(1);
+						if (props.currentPage != 1) {
+							props.onPageChanged(1);
+						}
 					}}
 				>
 					1
@@ -68,7 +70,9 @@ const Users = props => {
 									: styles.navButton
 							}
 							onClick={() => {
-								props.onPageChanged(p);
+								if (props.currentPage != p) {
+									props.onPageChanged(p);
+								}
 							}}
 						>
 							{p}
@@ -92,7 +96,9 @@ const Users = props => {
 							: styles.navButton
 					}
 					onClick={() => {
-						props.onPageChanged(pagesCount);
+						if (props.currentPage != pagesCount) {
+							props.onPageChanged(pagesCount);
+						}
 					}}
 				>
 					{pagesCount}
