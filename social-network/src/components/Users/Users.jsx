@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Users.module.css';
 import userPhoto from './user.png';
 import { NavLink } from 'react-router-dom';
+import { usersAPI } from '../../api/api';
 
 const Users = props => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -21,6 +22,25 @@ const Users = props => {
 	}
 	let lowGap = Math.floor((props.currentPage - 1) / 2);
 	let highGap = Math.ceil((props.currentPage + 2 + pagesCount) / 2);
+
+	let follow = id => {
+		props.toggleFollowingProgress(true, id);
+		usersAPI.followUser(id).then(data => {
+			if (data.resultCode === 0) {
+				props.follow(id);
+			}
+			props.toggleFollowingProgress(false, id);
+		});
+	};
+	let unFollow = id => {
+		props.toggleFollowingProgress(true, id);
+		usersAPI.unFollowUser(id).then(data => {
+			if (data.resultCode === 0) {
+				props.unFollow(id);
+			}
+			props.toggleFollowingProgress(false, id);
+		});
+	};
 	return (
 		<section className={styles.users}>
 			<div className={styles.navigate}>
@@ -134,8 +154,9 @@ const Users = props => {
 					</div>
 					{u.followed ? (
 						<button
+							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
-								props.unFollow(u.id);
+								unFollow(u.id);
 							}}
 							className={styles.button}
 						>
@@ -143,8 +164,9 @@ const Users = props => {
 						</button>
 					) : (
 						<button
+							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
-								props.follow(u.id);
+								follow(u.id);
 							}}
 							className={styles.button}
 						>
