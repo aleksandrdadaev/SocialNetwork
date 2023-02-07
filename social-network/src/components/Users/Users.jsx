@@ -3,6 +3,7 @@ import styles from './Users.module.css';
 import userPhoto from './user.png';
 import { NavLink } from 'react-router-dom';
 import axios from 'axios';
+import { usersAPI } from '../../api/api';
 
 const Users = props => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -22,6 +23,21 @@ const Users = props => {
 	}
 	let lowGap = Math.floor((props.currentPage - 1) / 2);
 	let highGap = Math.ceil((props.currentPage + 2 + pagesCount) / 2);
+
+	let follow = id => {
+		usersAPI.followUser(id).then(data => {
+			if (data.resultCode === 0) {
+				props.follow(id);
+			}
+		});
+	};
+	let unFollow = id => {
+		usersAPI.unFollowUser(id).then(data => {
+			if (data.resultCode === 0) {
+				props.unFollow(id);
+			}
+		});
+	};
 	return (
 		<section className={styles.users}>
 			<div className={styles.navigate}>
@@ -136,18 +152,7 @@ const Users = props => {
 					{u.followed ? (
 						<button
 							onClick={() => {
-								axios
-									.delete(
-										`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-										{
-											withCredentials: true,
-										}
-									)
-									.then(response => {
-										if (response.data.resultCode === 0) {
-											props.unFollow(u.id);
-										}
-									});
+								unFollow(u.id);
 							}}
 							className={styles.button}
 						>
@@ -156,19 +161,7 @@ const Users = props => {
 					) : (
 						<button
 							onClick={() => {
-								axios
-									.post(
-										`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-										{},
-										{
-											withCredentials: true,
-										}
-									)
-									.then(response => {
-										if (response.data.resultCode === 0) {
-											props.follow(u.id);
-										}
-									});
+								follow(u.id);
 							}}
 							className={styles.button}
 						>
