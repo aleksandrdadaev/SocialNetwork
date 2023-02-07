@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Users.module.css';
 import userPhoto from './user.png';
 import { NavLink } from 'react-router-dom';
-import axios from 'axios';
 import { usersAPI } from '../../api/api';
 
 const Users = props => {
@@ -25,17 +24,21 @@ const Users = props => {
 	let highGap = Math.ceil((props.currentPage + 2 + pagesCount) / 2);
 
 	let follow = id => {
+		props.toggleFollowingProgress(true, id);
 		usersAPI.followUser(id).then(data => {
 			if (data.resultCode === 0) {
 				props.follow(id);
 			}
+			props.toggleFollowingProgress(false, id);
 		});
 	};
 	let unFollow = id => {
+		props.toggleFollowingProgress(true, id);
 		usersAPI.unFollowUser(id).then(data => {
 			if (data.resultCode === 0) {
 				props.unFollow(id);
 			}
+			props.toggleFollowingProgress(false, id);
 		});
 	};
 	return (
@@ -151,6 +154,7 @@ const Users = props => {
 					</div>
 					{u.followed ? (
 						<button
+							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
 								unFollow(u.id);
 							}}
@@ -160,6 +164,7 @@ const Users = props => {
 						</button>
 					) : (
 						<button
+							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
 								follow(u.id);
 							}}
