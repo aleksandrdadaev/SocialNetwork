@@ -47,12 +47,10 @@ export const setUserProfile = profile => ({
 	profile,
 });
 
-export const getProfile = userId => {
-	return dispatch => {
-		profileAPI.getProfile(userId).then(data => {
-			dispatch(setUserProfile(data));
-		});
-	};
+export const getProfile = userId => dispatch => {
+	profileAPI.getProfile(userId).then(data => {
+		dispatch(setUserProfile(data));
+	});
 };
 
 export default profileReducer;

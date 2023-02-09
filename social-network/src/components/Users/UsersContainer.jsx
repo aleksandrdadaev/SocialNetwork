@@ -13,12 +13,10 @@ class UsersContainer extends React.Component {
 	componentDidMount() {
 		this.props.getUsers(this.props.pageSize, this.props.currentPage);
 	}
-
 	onPageChanged = pageNumber => {
 		this.props.setCurrentPage(pageNumber);
 		this.props.getUsers(this.props.pageSize, pageNumber);
 	};
-
 	render() {
 		return (
 			<>
@@ -51,36 +49,6 @@ let mapStateToProps = state => {
 		followingInProgress: state.usersPage.followingInProgress,
 	};
 };
-
-// let mapDispatchToProps = dispatch => {
-// 	return {
-// 		follow: userId => {
-// 			let action = followAC(userId);
-// 			dispatch(action);
-// 		},
-// 		unFollow: userId => {
-// 			let action = unFollowAC(userId);
-// 			dispatch(action);
-// 		},
-// 		setUsers: users => {
-// 			let action = setUsersAC(users);
-// 			dispatch(action);
-// 		},
-// 		setCurrentPage: page => {
-// 			let action = setCurrentPageAC(page);
-// 			dispatch(action);
-// 		},
-// 		setTotalUsersCount: usersCount => {
-// 			let action = setUsersTotalCountAC(usersCount);
-// 			dispatch(action);
-// 		},
-// 		setIsFetching: isFetching => {
-// 			let action = setIsFetchingAC(isFetching);
-// 			dispatch(action);
-// 		},
-// 	};
-// };
-
 let mapDispatchToProps = {
 	setCurrentPage,
 	getUsers,
