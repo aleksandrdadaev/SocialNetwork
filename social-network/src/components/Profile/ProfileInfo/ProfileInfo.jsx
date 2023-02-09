@@ -8,7 +8,11 @@ const ProfileInfo = props => {
 	}
 	return (
 		<div className={styles.header}>
-			<img src={props.profile.photos.large} className={styles.photo} />
+			<img
+				src={props.profile.photos.large}
+				className={styles.photo}
+				alt='Photo'
+			/>
 			<div className={styles.info}>
 				<h2 className={styles.name}>{props.profile.fullName}</h2>
 				<p className={styles.status}>{props.profile.aboutMe}</p>

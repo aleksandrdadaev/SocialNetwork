@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Users.module.css';
 import userPhoto from './user.png';
 import { NavLink } from 'react-router-dom';
-import { usersAPI } from '../../api/api';
 
 const Users = props => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -23,24 +22,6 @@ const Users = props => {
 	let lowGap = Math.floor((props.currentPage - 1) / 2);
 	let highGap = Math.ceil((props.currentPage + 2 + pagesCount) / 2);
 
-	let follow = id => {
-		props.toggleFollowingProgress(true, id);
-		usersAPI.followUser(id).then(data => {
-			if (data.resultCode === 0) {
-				props.follow(id);
-			}
-			props.toggleFollowingProgress(false, id);
-		});
-	};
-	let unFollow = id => {
-		props.toggleFollowingProgress(true, id);
-		usersAPI.unFollowUser(id).then(data => {
-			if (data.resultCode === 0) {
-				props.unFollow(id);
-			}
-			props.toggleFollowingProgress(false, id);
-		});
-	};
 	return (
 		<section className={styles.users}>
 			<div className={styles.navigate}>
@@ -65,7 +46,7 @@ const Users = props => {
 							: styles.navButton
 					}
 					onClick={() => {
-						if (props.currentPage != 1) {
+						if (props.currentPage !== 1) {
 							props.onPageChanged(1);
 						}
 					}}
@@ -82,24 +63,23 @@ const Users = props => {
 						...
 					</button>
 				)}
-				{pages.map(p => {
-					return (
-						<button
-							className={
-								props.currentPage === p
-									? `${styles.navButton} ${styles.buttonActive}`
-									: styles.navButton
+				{pages.map(p => (
+					<button
+						key={p}
+						className={
+							props.currentPage === p
+								? `${styles.navButton} ${styles.buttonActive}`
+								: styles.navButton
+						}
+						onClick={() => {
+							if (props.currentPage !== p) {
+								props.onPageChanged(p);
 							}
-							onClick={() => {
-								if (props.currentPage != p) {
-									props.onPageChanged(p);
-								}
-							}}
-						>
-							{p}
-						</button>
-					);
-				})}
+						}}
+					>
+						{p}
+					</button>
+				))}
 				{highGap <= pagesCount - 1 && (
 					<button
 						className={styles.navButton}
@@ -117,7 +97,7 @@ const Users = props => {
 							: styles.navButton
 					}
 					onClick={() => {
-						if (props.currentPage != pagesCount) {
+						if (props.currentPage !== pagesCount) {
 							props.onPageChanged(pagesCount);
 						}
 					}}
@@ -143,8 +123,9 @@ const Users = props => {
 				<div key={u.id} className={styles.user}>
 					<NavLink to={'/profile/' + u.id}>
 						<img
-							src={u.photos.small != null ? u.photos.small : userPhoto}
+							src={u.photos.small !== null ? u.photos.small : userPhoto}
 							className={styles.photo}
+							alt='Ava'
 						/>
 					</NavLink>
 
@@ -156,7 +137,7 @@ const Users = props => {
 						<button
 							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
-								unFollow(u.id);
+								props.unFollowUser(u.id);
 							}}
 							className={styles.button}
 						>
@@ -166,7 +147,7 @@ const Users = props => {
 						<button
 							disabled={props.followingInProgress.some(id => id === u.id)}
 							onClick={() => {
-								follow(u.id);
+								props.followUser(u.id);
 							}}
 							className={styles.button}
 						>
