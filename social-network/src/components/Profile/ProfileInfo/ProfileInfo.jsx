@@ -1,6 +1,7 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = props => {
 	if (!props.profile) {
@@ -15,7 +16,7 @@ const ProfileInfo = props => {
 			/>
 			<div className={styles.info}>
 				<h2 className={styles.name}>{props.profile.fullName}</h2>
-				<p className={styles.status}>{props.profile.aboutMe}</p>
+				<ProfileStatus status={'Hello my friends'} />
 			</div>
 		</div>
 	);

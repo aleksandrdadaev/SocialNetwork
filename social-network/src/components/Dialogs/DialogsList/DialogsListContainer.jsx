@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import DialogsList from './DialogsList';
 
 let mapStateToProps = state => {
@@ -7,13 +9,9 @@ let mapStateToProps = state => {
 	};
 };
 
-let mapDispatchToProps = dispatch => {
-	return {};
-};
-
-const DialogsListContainer = connect(
-	mapStateToProps,
-	mapDispatchToProps
+const DialogsListContainer = compose(
+	withAuthRedirect,
+	connect(mapStateToProps)
 )(DialogsList);
 
 export default DialogsListContainer;
