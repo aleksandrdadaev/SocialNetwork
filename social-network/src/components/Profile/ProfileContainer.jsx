@@ -8,6 +8,7 @@ import {
 	useNavigate,
 	useParams,
 } from 'react-router-dom';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
@@ -17,15 +18,15 @@ class ProfileContainer extends React.Component {
 	}
 
 	render() {
-		if (!this.props.isAuth) return <Navigate to='/login' />;
 		return <Profile {...this.props} />;
 	}
 }
 
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 let mapStateToProps = state => {
 	return {
 		profile: state.profilePage.profile,
-		isAuth: state.auth.isAuth,
 	};
 };
 
@@ -46,4 +47,4 @@ function withRouter(Component) {
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(withRouter(ProfileContainer));
+)(withRouter(AuthRedirectComponent));

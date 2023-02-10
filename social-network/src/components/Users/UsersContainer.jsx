@@ -8,6 +8,7 @@ import {
 	followUser,
 } from '../../redux/usersReducer';
 import Preloader from '../common/Preloader/Preloader';
+import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
@@ -56,4 +57,6 @@ let mapDispatchToProps = {
 	unFollowUser,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default withAuthRedirect(
+	connect(mapStateToProps, mapDispatchToProps)(UsersContainer)
+);
