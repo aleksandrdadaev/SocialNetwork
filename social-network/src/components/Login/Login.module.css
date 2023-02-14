@@ -1,0 +1,43 @@
+.blok {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	background-color: rgba(0, 0, 0, 0.5);
+	padding: 20px;
+	border-radius: 5px;
+}
+
+.input {
+	background-color: #fff;
+	color: #555;
+	font-size: 22px;
+	border-radius: 4px;
+	padding: 5px 8px;
+}
+
+.label {
+	display: flex;
+	gap: 10px;
+}
+
+.labelText {
+	font-size: 18px;
+}
+
+.button {
+	width: 100%;
+	padding: 7px 12px;
+	background-color: #d9534f;
+	border-radius: 4px;
+	font-size: 18px;
+}
+
+.button:hover {
+	background-color: #c9302c;
+}
