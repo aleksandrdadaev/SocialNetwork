@@ -1,15 +1,19 @@
 import React from 'react';
-import s from './Messages.module.css';
+import styles from './Messages.module.css';
 import Header from './Header/Header';
-import BodyContainer from './Body/BodyContainer';
-import FooterContainer from './Footer/FooterContainer';
+import Body from './Body/Body';
+import NewMessageReduxForm from './NewMessageForm/NewMessageForm';
 
 const Messages = props => {
+	const onSubmit = formData => {
+		console.log(formData);
+		props.sendMessage(formData.message);
+	};
 	return (
-		<div className={s.messages}>
+		<div className={styles.messages}>
 			<Header />
-			<BodyContainer />
-			<FooterContainer />
+			<Body messages={props.messages} />
+			<NewMessageReduxForm onSubmit={onSubmit} />
 		</div>
 	);
 };
