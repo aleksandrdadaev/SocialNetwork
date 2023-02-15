@@ -1,18 +1,18 @@
 import React from 'react';
-import s from './Dialogs.module.css';
+import styles from './Dialogs.module.css';
 import DialogsListContainer from './DialogsList/DialogsListContainer';
-import Messages from './Messages/Messages';
+import MessagesContainer from './Messages/MessagesContainer';
 import Search from './Search/Search';
 
 const Dialogs = props => {
 	return (
-		<section className={s.dialogs}>
-			<div className={s.leftPanel}>
+		<section className={styles.dialogs}>
+			<div className={styles.leftPanel}>
 				<Search />
 				<DialogsListContainer />
 			</div>
-			<div className={s.rightPanel}>
-				<Messages />
+			<div className={styles.rightPanel}>
+				<MessagesContainer />
 			</div>
 		</section>
 	);

@@ -1,4 +1,3 @@
-const UPDATE_NEW_MESSAGE_INPUT_VALUE = 'UPDATE-NEW-MESSAGE-INPUT-VALUE';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
 let initialState = {
@@ -16,32 +15,20 @@ let initialState = {
 		{ id: 3, text: 'Hi' },
 		{ id: 4, text: 'Yo' },
 	],
-	newMessageInputValue: '',
 };
 
 const dialogsReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case SEND_MESSAGE:
-			let text = state.newMessageInputValue;
 			return {
 				...state,
-				messages: [{ id: 5, text: text }, ...state.messages],
-				newMessageInputValue: '',
-			};
-		case UPDATE_NEW_MESSAGE_INPUT_VALUE:
-			return {
-				...state,
-				newMessageInputValue: action.newValue,
+				messages: [{ id: 5, text: action.text }, ...state.messages],
 			};
 		default:
 			return state;
 	}
 };
 
-export const sendMessageAC = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageInputValueAC = text => ({
-	type: UPDATE_NEW_MESSAGE_INPUT_VALUE,
-	newValue: text,
-});
+export const sendMessage = text => ({ type: SEND_MESSAGE, text });
 
 export default dialogsReducer;

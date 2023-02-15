@@ -10,7 +10,7 @@ let mapStateToProps = state => {
 };
 
 const DialogsListContainer = compose(
-	withAuthRedirect,
+	// withAuthRedirect,
 	connect(mapStateToProps)
 )(DialogsList);
 
