@@ -20,6 +20,11 @@
 	align-items: center;
 }
 
+.authUserBlok {
+	display: flex;
+	gap: 10px;
+}
+
 .button {
 	height: fit-content;
 	flex-shrink: 0;

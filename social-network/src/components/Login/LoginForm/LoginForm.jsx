@@ -9,10 +9,10 @@ const LoginForm = props => {
 		<form className={styles.form} onSubmit={props.handleSubmit}>
 			<Field
 				type='text'
-				placeholder='Login'
+				placeholder='Email'
 				className={styles.input}
 				component={Input}
-				name='login'
+				name='email'
 				validate={[required]}
 			/>
 			<Field
