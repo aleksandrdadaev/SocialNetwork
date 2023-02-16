@@ -2,16 +2,23 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import styles from './NewMessageForm.module.css';
 import styles2 from '../Messages.module.css';
+import { Textarea } from '../../../common/FormsControls/Textarea/Textarea';
+import {
+	maxLengthCreator,
+	required,
+} from '../../../../utils/validators/validators';
 
 const NewMessageForm = props => {
 	return (
 		<form className={styles2.blok} onSubmit={props.handleSubmit}>
 			<div className={styles.textareaWrapper}>
 				<Field
-					component='textarea'
+					component={Textarea}
 					className={styles.textarea}
 					placeholder='Написать сообщение...'
 					name='message'
+					rows='1'
+					validate={[required, maxLengthCreator(50)]}
 				></Field>
 			</div>
 			<button
