@@ -1,8 +1,8 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import styles from './ProfileInfo.module.css';
-import ProfileStatus from './ProfileStatus/ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
+import userPhoto from '../../Users/user.png';
 
 const ProfileInfo = props => {
 	if (!props.profile) {
@@ -11,7 +11,11 @@ const ProfileInfo = props => {
 	return (
 		<div className={styles.header}>
 			<img
-				src={props.profile.photos.large}
+				src={
+					props.profile.photos.large !== null
+						? props.profile.photos.large
+						: userPhoto
+				}
 				className={styles.photo}
 				alt='Photo'
 			/>
